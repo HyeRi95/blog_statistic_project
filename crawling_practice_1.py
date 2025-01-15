@@ -27,11 +27,17 @@ data = {
     '제목': [elem.text for elem in driver.find_elements(By.CLASS_NAME, "title__UUn4H")]
 }
 
+visit_data = {
+            '오늘 방문수' : [elem.text[3:6] for elem in driver.find_elements(By.CLASS_NAME,'count__T3YO8')],
+            '전체 방문수' : [elem.text[10:17] for elem in driver.find_elements(By.CLASS_NAME,'count__T3YO8')]
+            }
 # 데이터 프레임 생성
 df = pd.DataFrame(data)
+df_v = pd.DataFrame(visit_data)
 
 # 브라우저 종료
 driver.quit()
 
 # 결과 확인
 print(df)
+print(df_v)
