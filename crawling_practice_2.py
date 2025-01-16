@@ -1,4 +1,6 @@
 # # 파이썬 크롤링 연습 1 
+# BeutifulSoup는 스크롤 동작이 추가 되어야 하면 안됨
+# 첫 화면에 보이는 내용은 크롤링 가능 
 import requests
 from bs4 import BeautifulSoup
 
@@ -19,19 +21,18 @@ if response.status_code == 200:
     
     # '날짜' 수 크롤링
     count_list = []
-    date_elements = soup.find_all('span', class_='time__mHZOn')
-    for date in date_elements:
-        print(date.text)
+    count_elements = soup.find_all('div', class_='count__T3YO8')
+    for count in count_elements:
+        print(count.text)
     
-    # 'title' 값 크롤링
-    title_list = []
-    title_elements = soup.find_all('strong', class_='title__UUn4H')
-    for title in title_elements:
-        title_text = title.get_text(strip=True)
-        title_list.append(title_text)
+    # '이웃수' 값 크롤링
+    neighbor_elements = soup.find_all('span', class_='buddy__fw6Uo')
+    for neighbor in neighbor_elements:
+        # title_text = title.get_text(strip=True)
+        print(neighbor.text)
     
-    # 결과 출력
-    print("날짜:", count_list)
-    print("제목:", title_list)
+    # # 결과 출력
+    # print("날짜:", count_list)
+    # print("제목:", title_list)
 else:
     print("페이지 요청 실패:", response.status_code)
