@@ -7,7 +7,7 @@ import time
 driver = webdriver.Chrome()
 
 # 원하는 URL로 이동
-url = 'https://m.blog.naver.com/11destiny3?categoryNo=15&tab=1'
+url = 'https://m.blog.naver.com/11destiny3?categoryNo=11&tab=1'
 driver.get(url)
 
 # 페이지가 로드될 때까지 충분히 대기
